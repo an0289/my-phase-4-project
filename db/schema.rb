@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2023_06_22_000734) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
@@ -27,8 +24,8 @@ ActiveRecord::Schema.define(version: 2023_06_22_000734) do
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.bigint "user_id", null: false
-    t.bigint "item_id", null: false
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_reviews_on_item_id"
